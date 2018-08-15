@@ -14,7 +14,8 @@ class DAVIS2016(Dataset):
 
     def __init__(self, train=True,
                  inputRes=None,
-                 db_root_dir='/media/eec/external/Databases/Segmentation/DAVIS-2016',
+                 #db_root_dir='/media/eec/external/Databases/Segmentation/DAVIS-2016',
+                 db_root_dir='/Users/fei/data/davis2017/DAVIS',
                  transform=None,
                  meanval=(104.00699, 116.66877, 122.67892),
                  seq_name=None):
@@ -121,7 +122,7 @@ if __name__ == '__main__':
 
     transforms = transforms.Compose([tr.RandomHorizontalFlip(), tr.Resize(scales=[0.5, 0.8, 1]), tr.ToTensor()])
 
-    dataset = DAVIS2016(db_root_dir='/media/eec/external/Databases/Segmentation/DAVIS-2016',
+    dataset = DAVIS2016(db_root_dir='/Users/fei/data/davis2017/DAVIS',
                         train=True, transform=transforms)
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=1)
 
