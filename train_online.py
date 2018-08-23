@@ -25,7 +25,7 @@ from mypath import Path
 
 # Setting of parameters
 if 'SEQ_NAME' not in os.environ.keys():
-    seq_name = 'blackswan'
+    seq_name = 'bear'
 else:
     seq_name = str(os.environ['SEQ_NAME'])
 
@@ -36,9 +36,9 @@ if not os.path.exists(save_dir):
     os.makedirs(os.path.join(save_dir))
 
 vis_net = 0  # Visualize the network?
-vis_res = 0  # Visualize the results?
+vis_res = 1  # Visualize the results?
 nAveGrad = 5  # Average the gradient every nAveGrad iterations
-nEpochs = 2000 * nAveGrad  # Number of epochs for training
+nEpochs = 8 * nAveGrad  # Number of epochs for training
 snapshot = nEpochs  # Store a model every snapshot epochs
 parentEpoch = 240
 
@@ -106,6 +106,7 @@ num_img_ts = len(testloader)
 loss_tr = []
 aveGrad = 0
 
+
 print("Start of Online Training, sequence: " + seq_name)
 start_time = timeit.default_timer()
 # Main Training and Testing Loop
@@ -154,7 +155,6 @@ for epoch in range(0, nEpochs):
 
 stop_time = timeit.default_timer()
 print('Online training time: ' + str(stop_time - start_time))
-
 
 # Testing Phase
 if vis_res:

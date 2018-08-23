@@ -15,7 +15,7 @@ class DAVIS2016(Dataset):
     def __init__(self, train=True,
                  inputRes=None,
                  #db_root_dir='/media/eec/external/Databases/Segmentation/DAVIS-2016',
-                 db_root_dir='/Users/fei/data/davis2017/DAVIS',
+                 db_root_dir='/Users/fei/data/DAVIS_2017/Train',
                  transform=None,
                  meanval=(104.00699, 116.66877, 122.67892),
                  seq_name=None):
